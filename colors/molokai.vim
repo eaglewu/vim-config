@@ -1,0 +1,1 @@
+/Users/eagle/.vim/plugged/molokai/colors/molokai.vim
