@@ -1,0 +1,1 @@
+/Users/eagle/.vim/plugged/dracula-theme/vim/colors/dracula.vim
