@@ -1,4 +1,3 @@
-
 " map : 正常模式，可视化模式和运算符模式可用
 " nmap : 正常模式可用
 " vmap : 可视化模式可用
@@ -12,43 +11,47 @@ let g:mapleader = ","
 let maplocalleader = ","
 let g:maplocalleader = ","
 
-
 call plug#begin('~/.vim/plugged')
 
 " Make sure you use single quotes
 Plug 'junegunn/seoul256.vim'
 Plug 'junegunn/vim-easy-align'
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
+Plug 'https://github.com/junegunn/vim-github-dashboard.git'
+Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
+Plug 'nsf/gocode', { 'tag': 'v.20150303', 'rtp': 'vim' }
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug '~/my-prototype-plugin'
+Plug 'bling/vim-airline'
+Plug 'scrooloose/syntastic'
+Plug 'altercation/vim-colors-solarized'
+Plug 'tomasr/molokai'
+Plug 'majutsushi/tagbar'
+Plug 'scrooloose/nerdcommenter'
+Plug 'ervandew/supertab'
+Plug 'Shougo/neocomplcache.vim'
+Plug 'rizzatti/dash.vim'
+Plug 'Shougo/vimproc'
+Plug 'Shougo/vimshell'
+Plug 'moll/vim-bbye' 
+Plug 'bruno-/vim-man'
+Plug 'phpvim/phpcd.vim'
+Plug 'vim-scripts/progressbar-widget' " 用来显示索引进度的插件
+Plug 'zenorocha/dracula-theme', {'rtp': 'vim/'}
+Plug 'Yggdroot/indentLine'
+
+" Add plugins to &runtimepath
+call plug#end()
+
 
 " Group dependencies, vim-snippets depends on ultisnips
 "Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 
-" On-demand loading
-Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
-nmap <F7> :NERDTreeToggle<CR>
-
-Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
-
-" Using git URL
-Plug 'https://github.com/junegunn/vim-github-dashboard.git'
-
-" Using a non-master branch
-Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
-
-" Plugin options
-Plug 'nsf/gocode', { 'tag': 'v.20150303', 'rtp': 'vim' }
-
 " Plugin outside ~/.vim/plugged with post-update hook
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 nnoremap <silent> <c-p> :FZF<cr>
 
-" Unmanaged plugin (manually installed and updated)
-Plug '~/my-prototype-plugin'
-
-" Airline
-Plug 'bling/vim-airline'
-
 " Syntastic
-Plug 'scrooloose/syntastic'
 " set statusline+=%#warningmsg#
 " set statusline+=%{SyntasticStatuslineFlag()}
 " set statusline+=%*
@@ -59,49 +62,35 @@ Plug 'scrooloose/syntastic'
 " let g:syntastic_check_on_wq = 0
 
 
+syntax on
+
 " Vim Colors Solarized
-Plug 'altercation/vim-colors-solarized'
-Plug 'tomasr/molokai'
-"syntax on
 " set background=dark
 "set background=light
 "colorscheme solarized
 "colorscheme Tomorrow-Night
 
 " Tagbar
-Plug 'majutsushi/tagbar'
-nmap <F8> :TagbarToggle<CR>
+nnoremap <silent> <leader>2 :TagbarToggle<cr>
 
 " NERD Commenter
-Plug 'scrooloose/nerdcommenter'
 filetype plugin on
 
-" Supertab
-Plug 'ervandew/supertab'
-
-Plug 'Shougo/neocomplcache.vim'
-"Plug 'StanAngeloff/php.vim'
-
-Plug 'rizzatti/dash.vim'
+" rizzatti/dash.vim
 nmap <silent> <leader>d <Plug>DashSearch
 
-Plug 'Shougo/vimproc'
-Plug 'Shougo/vimshell'
-Plug 'moll/vim-bbye' 
-Plug 'bruno-/vim-man'
+" Vim-Man
 map <leader>k <Plug>(Man)
 map <leader>v <Plug>(Vman)
 
-Plug 'phpvim/phpcd.vim'
-Plug 'vim-scripts/progressbar-widget' " 用来显示索引进度的插件
+" phpcd
 autocmd FileType php setlocal omnifunc=phpcd#CompletePHP
 
-
-Plug 'zenorocha/dracula-theme', {'rtp': 'vim/'}
-syntax on
-
-" Add plugins to &runtimepath
-call plug#end()
+" Yggdroot/indentLine
+" let g:indentLine_char = '│'
+" let g:indentLine_color_term = 239
+" let g:indentLine_conceallevel = 1
+" let g:indentLine_enabled = 0
 
 set encoding=utf-8 fileencodings=utf-8,cp936
 set helplang=cn
@@ -118,9 +107,7 @@ set hlsearch
 set backspace=indent,eol,start
 set foldmarker=\ {{{\ ,\ }}}\  foldlevel=0 foldlevelstart=0 foldmethod=marker foldcolumn=0
 set mouse=a
-
 set tags+=.tags,../.tags,../../.tags,../../../.tags,../../../../.tags,../../../../../.tags,../../../../../../.tags,../../../../../../../.tags,../../../../../../../../.tags,../../../../../../../../../.tags,../../../../../../../../../../.tags
-
 set viewoptions=folds,options,cursor,unix,slash " better unix / windows compatibility
 set virtualedit=block           " allow for cursor beyond last character
 set history=1000                " Store a ton of history (default is 20)
@@ -154,13 +141,12 @@ set matchpairs+=<:>                " match, to be used with %
 set pastetoggle=<F12>           " pastetoggle (sane indentation on pastes)
 
 " Cursor in right when select selection.
-set selection=exclusive
+" set selection=exclusive
 
 " Copy to system clipboard
 vmap <c-c> "+y
 
 map <F10> :w<CR> :!clear; make<CR> :!./%<<CR>
-
 
 " set colorcolumn=80
 call matchadd('ColorColumn', '\%81v', 100)
