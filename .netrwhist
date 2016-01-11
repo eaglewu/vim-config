@@ -1,6 +1,7 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =4
-let g:netrw_dirhist_1='/Users/eagle/SourceCode/nginx-releases'
-let g:netrw_dirhist_2='/Users/eagle/SourceCode/nginx-releases/src'
-let g:netrw_dirhist_3='/Users/eagle/SourceCode/nginx-releases/src/os'
-let g:netrw_dirhist_4='/Users/eagle/SourceCode/nginx-releases/src/os/unix'
+let g:netrw_dirhist_cnt =5
+let g:netrw_dirhist_1='/usr/local/etc/nginx/servers'
+let g:netrw_dirhist_2='/Users/eagle/SourceCode/php-src'
+let g:netrw_dirhist_3='/Users/eagle/SourceCode'
+let g:netrw_dirhist_4='/Users/eagle/SourceCode/php-src'
+let g:netrw_dirhist_5='/'

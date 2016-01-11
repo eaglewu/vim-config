@@ -328,6 +328,7 @@ nnoremap <leader>h :call HexHighlight()<cr>
 
 " promote jump
 nnoremap <c-]> g<c-]>
+nnoremap <c-[> <c-t>
 
 " nerdtree
 nnoremap <silent> <leader>1 :NERDTreeToggle<cr>:vertical res 31<cr>
