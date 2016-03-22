@@ -516,6 +516,6 @@ let g:php_cs_fixer_verbose = 0                    " Return the output of command
 
 " Emmet
 let g:user_emmet_expandabbr_key = '<Tab>'
-let g:user_emmet_settings = webapi#json#decode(join(readfile(expand('~/.snippets_custom.json')), "\n"))
+let g:user_emmet_settings = webapi#json#decode(join(readfile(expand('~/.vim/.snippets_custom.json')), "\n"))
 
 
