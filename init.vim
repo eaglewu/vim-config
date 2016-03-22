@@ -23,13 +23,14 @@ Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
 Plug 'nsf/gocode', { 'tag': 'v.20150303', 'rtp': 'vim' }
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug '~/my-prototype-plugin'
-Plug 'bling/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'scrooloose/syntastic'
 Plug 'altercation/vim-colors-solarized'
 Plug 'tomasr/molokai'
 Plug 'majutsushi/tagbar'
 Plug 'scrooloose/nerdcommenter'
 Plug 'ervandew/supertab'
+"colorscheme Tomorrow-Night
 Plug 'Shougo/neocomplcache.vim'
 Plug 'rizzatti/dash.vim'
 Plug 'Shougo/vimproc'
@@ -40,6 +41,18 @@ Plug 'phpvim/phpcd.vim'
 Plug 'vim-scripts/progressbar-widget' " 用来显示索引进度的插件
 Plug 'zenorocha/dracula-theme', {'rtp': 'vim/'}
 Plug 'Yggdroot/indentLine'
+Plug 'stephpy/php-cs-fixer'
+
+" Vim Go
+Plug 'fatih/vim-go'
+Plug 'dgryski/vim-godef'
+Plug 'Blackrush/vim-gocode'
+Plug 'majutsushi/tagbar'
+
+" Emmet
+Plug 'mattn/emmet-vim'
+
+Plug 'mattn/webapi-vim'
 
 " Add plugins to &runtimepath
 call plug#end()
@@ -92,7 +105,7 @@ autocmd FileType php setlocal omnifunc=phpcd#CompletePHP
 " let g:indentLine_conceallevel = 1
 " let g:indentLine_enabled = 0
 
-set encoding=utf-8 fileencodings=utf-8,cp936
+"set encoding=utf-8 fileencodings=utf-8,cp936
 set helplang=cn
 set synmaxcol=500
 set ruler
@@ -149,7 +162,7 @@ vmap <c-c> "+y
 map <F10> :w<CR> :!clear; make<CR> :!./%<<CR>
 
 " set colorcolumn=80
-call matchadd('ColorColumn', '\%81v', 100)
+call matchadd('ColorColumn', '\%121v', 120)
 
 " Auto complete setting
 set completeopt=longest,menuone
@@ -468,3 +481,41 @@ augroup phpSyntaxOverride
 autocmd!
 autocmd FileType php call PhpSyntaxOverride()
 augroup END
+
+" Go
+let g:go_term_mode = "split"
+
+autocmd FileType go nmap <leader>r <Plug>(go-run)
+autocmd FileType go nmap <leader>b <Plug>(go-build)
+autocmd FileType go nmap <leader>t <Plug>(go-test)
+autocmd FileType go nmap <leader>c <Plug>(go-coverage)
+
+autocmd FileType go nmap <Leader>ds <Plug>(go-def-split)
+autocmd FileType go nmap <Leader>dv <Plug>(go-def-vertical)
+autocmd FileType go nmap <Leader>dt <Plug>(go-def-tab)
+autocmd FileType go nmap <Leader>gd <Plug>(go-doc)
+autocmd FileType go nmap <Leader>gv <Plug>(go-doc-vertical)
+autocmd FileType go nmap <Leader>gb <Plug>(go-doc-browser)
+autocmd FileType go nmap <Leader>s <Plug>(go-implements)
+autocmd FileType go nmap <Leader>i <Plug>(go-info)
+autocmd FileType go nmap <Leader>e <Plug>(go-rename)
+
+" PHP cx fixer 
+nnoremap <silent><leader>pcd :call PhpCsFixerFixDirectory()<CR>
+nnoremap <silent><leader>pcf :call PhpCsFixerFixFile()<CR>
+
+let g:php_cs_fixer_level = "symfony"              " which level ?
+let g:php_cs_fixer_config = "default"             " configuration
+"let g:php_cs_fixer_config_file = '.php_cs'       " configuration file
+let g:php_cs_fixer_php_path = "php"               " Path to PHP
+" If you want to define specific fixers:
+"let g:php_cs_fixer_fixers_list = "linefeed,short_tag,indentation"
+let g:php_cs_fixer_enable_default_mapping = 1     " Enable the mapping by default (<leader>pcd)
+let g:php_cs_fixer_dry_run = 0                    " Call command with dry-run option
+let g:php_cs_fixer_verbose = 0                    " Return the output of command if 1, else an inline information.
+
+" Emmet
+let g:user_emmet_expandabbr_key = '<Tab>'
+let g:user_emmet_settings = webapi#json#decode(join(readfile(expand('~/.snippets_custom.json')), "\n"))
+
+
