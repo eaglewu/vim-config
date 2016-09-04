@@ -1,0 +1,28 @@
+{
+    "c": {
+        "snippets":{
+            "cmain": "int main(int argc, char* argv[]){\n\t${cursor}\n}",
+            "std": "#include <stdio.h>\n#include <stdlib.h>\n\n",
+            "inc": "#include <${cursor}>\n"
+        }
+    },
+    "php": {
+        "snippets": {
+     
+        }
+    },
+    "html": {
+        "snippets": {
+            "ptag": "<php ${cursor} ?>"
+        }
+    },
+    "go": {
+        "snippets": {
+            "main": "func main int(){\n    ${cursor}\n\n\treturn 0\n}",
+            "func": "func ${cursor}(){\n\n}",
+            "pkg": "package ${cursor}",
+            "imp": "import \"${cursor}\"\n"
+        }
+    }
+
+}
