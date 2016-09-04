@@ -37,9 +37,9 @@ Plug 'Shougo/vimproc'
 Plug 'Shougo/vimshell'
 Plug 'moll/vim-bbye' 
 Plug 'bruno-/vim-man'
-Plug 'phpvim/phpcd.vim'
+" Plug 'phpvim/phpcd.vim'
 Plug 'vim-scripts/progressbar-widget' " 用来显示索引进度的插件
-Plug 'zenorocha/dracula-theme', {'rtp': 'vim/'}
+" Plug 'zenorocha/dracula-theme', {'rtp': 'vim/'}
 Plug 'Yggdroot/indentLine'
 Plug 'stephpy/php-cs-fixer'
 
@@ -48,6 +48,9 @@ Plug 'fatih/vim-go'
 Plug 'dgryski/vim-godef'
 Plug 'Blackrush/vim-gocode'
 Plug 'majutsushi/tagbar'
+Plug 'nsf/gocode', { 'rtp': 'nvim', 'do': '~/.config/nvim/plugged/gocode/nvim/symlink.sh' }
+Plug 'Shougo/deoplete.nvim'
+Plug 'zchee/deoplete-go', { 'do': 'make'}
 
 " Emmet
 Plug 'mattn/emmet-vim'
@@ -97,7 +100,7 @@ map <leader>k <Plug>(Man)
 map <leader>v <Plug>(Vman)
 
 " phpcd
-autocmd FileType php setlocal omnifunc=phpcd#CompletePHP
+" autocmd FileType php setlocal omnifunc=phpcd#CompletePHP
 
 " Yggdroot/indentLine
 " let g:indentLine_char = '│'
@@ -499,6 +502,10 @@ autocmd FileType go nmap <Leader>gb <Plug>(go-doc-browser)
 autocmd FileType go nmap <Leader>s <Plug>(go-implements)
 autocmd FileType go nmap <Leader>i <Plug>(go-info)
 autocmd FileType go nmap <Leader>e <Plug>(go-rename)
+
+au FileType go nmap <leader>rt <Plug>(go-run-tab)
+au FileType go nmap <Leader>rs <Plug>(go-run-split)
+au FileType go nmap <Leader>rv <Plug>(go-run-vertical)
 
 " PHP cx fixer 
 nnoremap <silent><leader>pcd :call PhpCsFixerFixDirectory()<CR>
