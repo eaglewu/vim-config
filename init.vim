@@ -555,4 +555,6 @@ nnoremap <C-P> :bprev<CR>
 let g:godef_split=2
 autocmd FileType go nnoremap <buffer> <c-d> :call GodefUnderCursor()<cr>
 
-
+" YouCompleteMe
+let g:ycm_complete_in_comments = 1
+let g:ycm_auto_trigger = 1
