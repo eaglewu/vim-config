@@ -54,12 +54,15 @@ Plug 'zchee/deoplete-go', { 'do': 'make'}
 Plug 'valloric/youcompleteme'
 
 " Emmet
-Plug 'mattn/emmet-vim'
+" Plug 'mattn/emmet-vim'
 
 Plug 'mattn/webapi-vim'
 Plug 'nsf/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh' }
 
 Plug 'ap/vim-buftabline'
+Plug 'tpope/vim-fugitive'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'ekalinin/dockerfile.vim'
 
 " Add plugins to &runtimepath
 call plug#end()
@@ -87,8 +90,7 @@ syntax on
 " Vim Colors Solarized
 " set background=dark
 "set background=light
-"colorscheme solarized
-"colorscheme Tomorrow-Night
+colorscheme monokai
 
 " Tagbar
 nnoremap <silent> <leader>2 :TagbarToggle<cr>
@@ -501,6 +503,7 @@ let g:go_highlight_fields = 1
 let g:go_highlight_types = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
+let g:go_highlight_generate_tags = 1
 
 let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
 let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
@@ -540,8 +543,8 @@ let g:php_cs_fixer_dry_run = 0                    " Call command with dry-run op
 let g:php_cs_fixer_verbose = 0                    " Return the output of command if 1, else an inline information.
 
 " Emmet
-let g:user_emmet_expandabbr_key = '<Tab>'
-let g:user_emmet_settings = webapi#json#decode(join(readfile(expand('~/.vim/.snippets_custom.json')), "\n"))
+"let g:user_emmet_expandabbr_key = '<Tab>'
+"let g:user_emmet_settings = webapi#json#decode(join(readfile(expand('~/.vim/.snippets_custom.json')), "\n"))
 
 " SuperTab
 let g:SuperTabDefaultCompletionType = "<c-n>"
