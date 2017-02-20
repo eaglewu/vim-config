@@ -42,6 +42,7 @@ Plug 'vim-scripts/progressbar-widget' " 用来显示索引进度的插件
 " Plug 'zenorocha/dracula-theme', {'rtp': 'vim/'}
 Plug 'Yggdroot/indentLine'
 Plug 'stephpy/php-cs-fixer'
+Plug 'noahfrederick/vim-composer'
 
 " Vim Go
 Plug 'fatih/vim-go'
