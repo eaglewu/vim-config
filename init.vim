@@ -25,7 +25,7 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug '~/my-prototype-plugin'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'scrooloose/syntastic'
-Plug 'altercation/vim-colors-solarized'
+" Plug 'altercation/vim-colors-solarized'
 Plug 'tomasr/molokai'
 Plug 'majutsushi/tagbar'
 Plug 'scrooloose/nerdcommenter'
@@ -41,7 +41,7 @@ Plug 'bruno-/vim-man'
 Plug 'vim-scripts/progressbar-widget' " 用来显示索引进度的插件
 " Plug 'zenorocha/dracula-theme', {'rtp': 'vim/'}
 Plug 'Yggdroot/indentLine'
-Plug 'stephpy/php-cs-fixer'
+Plug 'stephpy/vim-php-cs-fixer'
 Plug 'noahfrederick/vim-composer'
 
 " Vim Go
@@ -64,6 +64,9 @@ Plug 'ap/vim-buftabline'
 Plug 'tpope/vim-fugitive'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'ekalinin/dockerfile.vim'
+Plug 'morhetz/gruvbox'
+Plug 'solarnz/thrift.vim'
+
 
 " Add plugins to &runtimepath
 call plug#end()
@@ -535,6 +538,7 @@ nnoremap <silent><leader>pcf :call PhpCsFixerFixFile()<CR>
 
 let g:php_cs_fixer_level = "symfony"              " which level ?
 let g:php_cs_fixer_config = "default"             " configuration
+let g:php_cs_fixer_rules = "@PSR2"          " options: --rules (default:@PSR2)
 "let g:php_cs_fixer_config_file = '.php_cs'       " configuration file
 let g:php_cs_fixer_php_path = "php"               " Path to PHP
 " If you want to define specific fixers:
