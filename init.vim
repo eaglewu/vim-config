@@ -131,7 +131,7 @@ set ignorecase
 set smartcase
 set hlsearch
 set backspace=indent,eol,start
-set foldmarker=\ {{{\ ,\ }}}\  foldlevel=0 foldlevelstart=0 foldmethod=marker foldcolumn=0
+set foldmarker=\ {{{\ ,\ }}}\  foldlevel=0 foldlevelstart=0 foldmethod=indent foldcolumn=0
 set mouse=a
 set tags+=.tags,../.tags,../../.tags,../../../.tags,../../../../.tags,../../../../../.tags,../../../../../../.tags,../../../../../../../.tags,../../../../../../../../.tags,../../../../../../../../../.tags,../../../../../../../../../../.tags
 set viewoptions=folds,options,cursor,unix,slash " better unix / windows compatibility
