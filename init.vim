@@ -23,6 +23,7 @@ Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
 Plug 'nsf/gocode', { 'tag': 'v.20150303', 'rtp': 'vim' }
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug '~/my-prototype-plugin'
+Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'scrooloose/syntastic'
 " Plug 'altercation/vim-colors-solarized'
@@ -39,10 +40,10 @@ Plug 'moll/vim-bbye'
 Plug 'bruno-/vim-man'
 " Plug 'phpvim/phpcd.vim'
 Plug 'vim-scripts/progressbar-widget' " 用来显示索引进度的插件
-" Plug 'zenorocha/dracula-theme', {'rtp': 'vim/'}
 Plug 'Yggdroot/indentLine'
 Plug 'stephpy/vim-php-cs-fixer'
 Plug 'noahfrederick/vim-composer'
+Plug 'dracula/vim'
 
 " Vim Go
 Plug 'fatih/vim-go'
@@ -94,7 +95,8 @@ syntax on
 " Vim Colors Solarized
 " set background=dark
 "set background=light
-colorscheme monokai
+" colorscheme monokai
+color dracula
 
 " Tagbar
 nnoremap <silent> <leader>2 :TagbarToggle<cr>
@@ -131,7 +133,7 @@ set ignorecase
 set smartcase
 set hlsearch
 set backspace=indent,eol,start
-set foldmarker=\ {{{\ ,\ }}}\  foldlevel=0 foldlevelstart=0 foldmethod=indent foldcolumn=0
+set foldmarker=\ {{{\ ,\ }}}\  foldlevel=0 foldlevelstart=0 foldmethod=manual foldcolumn=0
 set mouse=a
 set tags+=.tags,../.tags,../../.tags,../../../.tags,../../../../.tags,../../../../../.tags,../../../../../../.tags,../../../../../../../.tags,../../../../../../../../.tags,../../../../../../../../../.tags,../../../../../../../../../../.tags
 set viewoptions=folds,options,cursor,unix,slash " better unix / windows compatibility
@@ -548,8 +550,8 @@ let g:php_cs_fixer_dry_run = 0                    " Call command with dry-run op
 let g:php_cs_fixer_verbose = 0                    " Return the output of command if 1, else an inline information.
 
 " Emmet
-"let g:user_emmet_expandabbr_key = '<Tab>'
-"let g:user_emmet_settings = webapi#json#decode(join(readfile(expand('~/.vim/.snippets_custom.json')), "\n"))
+let g:user_emmet_expandabbr_key = '<Tab>'
+let g:user_emmet_settings = webapi#json#decode(join(readfile(expand('~/.vim/.snippets_custom.json')), "\n"))
 
 " SuperTab
 let g:SuperTabDefaultCompletionType = "<c-n>"
@@ -564,5 +566,8 @@ let g:godef_split=2
 autocmd FileType go nnoremap <buffer> <c-d> :call GodefUnderCursor()<cr>
 
 " YouCompleteMe
+let g:ycm_global_ycm_extra_conf = '~/.vim/plugged/youcompleteme/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
 let g:ycm_complete_in_comments = 1
 let g:ycm_auto_trigger = 1
+" let g:ycm_keep_logfiles = 1
+" let g:ycm_log_level = 'debug'

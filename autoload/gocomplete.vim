@@ -1,1 +1,1 @@
-/Users/eagle/.config/nvim/plugged/gocode/nvim/autoload/gocomplete.vim
+/Users/eagle/.vim/plugged/gocode/vim/autoload/gocomplete.vim
